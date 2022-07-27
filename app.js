@@ -13,6 +13,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 const Employee = require("./lib/Employee");
+const { generateKey } = require("crypto");
 
 let team = [];
 let canAddManager = true;
@@ -63,7 +64,7 @@ const questions = {
         },
         {
             type: "list",
-            name: "addEmployee", //might change to addNew
+            name: "addNew", //might change to addNew
             message: "Add more employees?",
             choices: ["yes", "no", "maybe"]
         }
@@ -113,7 +114,7 @@ const questions = {
         },
         {
             type : "list",
-            name: "addEngineer", //might change to addNew
+            name: "addNew", //might change to addNew
             message: "Add more employees?",
             choices: ["yes", "no"]
         }
@@ -163,9 +164,100 @@ const questions = {
         },
         {
             type: "list",
-            name: "addIntern", //might change to addNew
+            name: "addNew", //might change to addNew
             message: "Add more employees?",
             choices: ["yes", "no"]
         }
     ]
 };
+
+const selectEmployee = [
+    {
+        type: "list",
+        name: "employeeLevel",
+        message: "Choose employee level",
+        choices: ["Manager", "Engineer", "Intern"],
+    }
+];
+
+function addNewEmployee() {
+    inquirer.prompt(selectEmployee)
+        .then(answer =>{
+            console.log(answer.employeeLevel);
+
+            if (answer.employeeLevel === "Manager") {
+                if (canAddManager) {
+                    inquirer.prompt(questions.Manager)
+                        .then(answer => {
+                            const manager = new Manager
+                                (
+                                    answer.name,
+                                    answer.id,
+                                    answer.email,
+                                    answer.officeNumber
+                                );
+                    
+                            team.push(manager);
+                            canAddManager = false;
+                            if (answer.addNew === "yes") {
+                                addNewEmployee();
+                            } else {
+                                generate();
+                            }
+                        });
+                } else {
+
+                    console.log("too many manager")
+                    addNewEmployee();
+                }
+
+            } else if (answer.employeeLevel === "Engineer") {
+                inquirer.prompt(questions.Engineer)
+                    .then(answer => {
+
+                        const engineer = new Engineer
+                            (
+                                answer.name,
+                                answer.id,
+                                answer.email,
+                                answer.github
+                            );
+
+                            team.push(engineer);
+                            if (answer.addNew === "yes") {
+                                addNewEmployee();
+                            } else {
+                                generate();
+                            };
+                    });
+            } else if (answer.employeeLevel === "Intern") {
+                inquirer.prompt(questions.Intern)
+                    .then(answer => {
+
+                        const intern = new Intern
+                            (
+                                answer.name,
+                                answer.id,
+                                answer.email,
+                                answer.college
+                            );
+
+                        team.push(intern);
+                        if (answer.addNew === "yes") {
+                            addNewEmployee();
+                        } else {
+                            generate();
+                        };
+                    });
+            };
+
+        });
+
+};
+
+addNewEmployee();
+
+function generate() {
+    fs.writeFileSync(outputPath, render(team), "utf-8");
+    process.exit(0);
+}

@@ -11,7 +11,7 @@ const emailValidator = require('email-validator'); //might need to install email
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./lib/htmlRenderer");
+const render = require("./lib/htmlOutput");
 const Employee = require("./lib/Employee");
 const { generateKey } = require("crypto");
 

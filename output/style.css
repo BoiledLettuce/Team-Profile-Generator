@@ -1,0 +1,49 @@
+/* header */
+h1 {
+    font-family: 'Voltaire', sans-serif;
+    font-size: 75px;
+}
+/* header 2nd letter */
+span {
+    opacity: .5;
+}
+
+/* employee title */
+h2 {
+    
+    font-family: 'Voltaire', sans-serif;
+    font-weight: bolder;
+    /* font-size: 40px; */
+}
+
+/* web page body */
+body {
+    background-color: rgb(48, 66, 83);
+}
+
+/* webpage top */
+.jumbotron {
+    background: rgb(74, 116, 134);
+}
+
+/* card employee level */
+.card-title{
+    font-family: 'Voltaire', sans-serif;;
+    font-size: 50px;
+}
+
+
+/* whole card */
+.employee-card {
+    box-shadow: 10px 10px 10px 10px rgba(1, 6, 47, 0.273);
+}
+
+/* card tops */
+.card-header {
+    background: rgb(100, 105, 122);
+}
+
+
+.card-body {
+    color:rgb(20, 24, 28);
+}

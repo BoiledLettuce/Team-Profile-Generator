@@ -26,7 +26,7 @@
 
     ![Example Image](./Assets/Preview.JPG)
 
-    * [Video Demo](https://drive.google.com/file/d/1Pb1f9zQjhw6SWP1HJRI-uPqoVLSF_S6_/view)
+    * [Video Demo](https://drive.google.com/file/d/1ClmS3jqAvl9rUJ2rTpP0OZuGOvGprjtb/view?usp=sharing)
 
     ## Features
 

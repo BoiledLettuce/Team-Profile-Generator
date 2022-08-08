@@ -8,7 +8,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +20,7 @@
   "dependencies": {
     "crypto": "^1.0.1",
     "fs": "^0.0.1-security",
-    "inquirer": "^9.0.2",
+    "inquirer": "^9.1.0",
     "path": "^0.12.7"
   }
 }

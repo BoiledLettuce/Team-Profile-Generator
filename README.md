@@ -9,7 +9,6 @@
   1. Clone this repository
   2. Node.js should be installed before running this application.
   3. `npm install` required.
-  4. `npm install email-validator` required.
   
   ## Usage
 

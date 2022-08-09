@@ -1,5 +1,5 @@
 
-  # README Generator
+  # TEAM-Profile-Generator
   ![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)
 
   A command-line based application that generates a quick yet professional Team Roster from a users input. This helps save precious time that could be better allocated to developing an application.

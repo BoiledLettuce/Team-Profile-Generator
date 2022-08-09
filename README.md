@@ -8,13 +8,13 @@
 
   1. Clone this repository
   2. Node.js should be installed before running this application.
-  3. `npm install` required.
+  3. `npm install` or `npm i` required.
   
   ## Usage
 
   * To invoke this application use the command:
 
-    `node app.js`
+    `npm run start`
 
   * You will then be prompted with questions to create a pro Team Roster.
   
